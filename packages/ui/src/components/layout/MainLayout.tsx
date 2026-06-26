@@ -30,6 +30,7 @@ import { DiffView } from '@/components/views/DiffView';
 import { FilesView } from '@/components/views/FilesView';
 import { GitView } from '@/components/views/GitView';
 import { PlanView } from '@/components/views/PlanView';
+import { StudioView } from '@/components/views/StudioView';
 
 // Heavy views loaded on-demand to reduce initial bundle parse time.
 const TerminalView = lazyWithChunkRecovery(() => import('@/components/views/TerminalView').then(m => ({ default: m.TerminalView })));
@@ -372,6 +373,8 @@ export const MainLayout: React.FC = () => {
                 return <React.Suspense fallback={null}><ProjectContextPanel /></React.Suspense>;
             case 'diagram':
                 return <React.Suspense fallback={null}><DiagramView /></React.Suspense>;
+            case 'studio':
+                return <React.Suspense fallback={null}><StudioView /></React.Suspense>;
             default:
                 return null;
         }

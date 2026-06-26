@@ -285,6 +285,14 @@ export const createFeatureRoutesRuntime = (dependencies) => {
       resolveGitBinaryForSpawn,
       openchamberUserConfigRoot,
     });
+
+    // StudioOS routes (optional module)
+    try {
+      const { registerStudioRoutes } = await import('../studio/routes.js');
+      registerStudioRoutes(app, routeDependencies);
+    } catch {
+      // StudioOS module not available — this is optional
+    }
   };
 
   return {
