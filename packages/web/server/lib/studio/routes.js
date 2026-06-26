@@ -5,7 +5,6 @@
  * Creates the StudioOS runtime lazily using available route dependencies.
  */
 
-import { createOpencodeClient } from '@opencode-ai/sdk/v2';
 import { createStudioRuntime } from './index.js';
 import { createProjectSSEStream } from './events.js';
 
@@ -15,7 +14,7 @@ let _studioRuntime = null;
 /**
  * Get or create the StudioOS runtime.
  */
-function getStudio(routeDeps) {
+async function getStudio(routeDeps) {
   if (_studioRuntime) return _studioRuntime;
 
   const {
@@ -28,6 +27,7 @@ function getStudio(routeDeps) {
   let opencodeClient = null;
   try {
     if (buildOpenCodeUrl) {
+      const { createOpencodeClient } = await import('@opencode-ai/sdk/v2');
       const headers = getOpenCodeAuthHeaders ? getOpenCodeAuthHeaders() : {};
       opencodeClient = createOpencodeClient({
         baseUrl: buildOpenCodeUrl(),
@@ -59,12 +59,12 @@ function getStudio(routeDeps) {
  * @param {import('express').Express} app
  * @param {Object} routeDeps - Route dependencies from feature-routes-runtime
  */
-export function registerStudioRoutes(app, routeDeps) {
+export async function registerStudioRoutes(app, routeDeps) {
   /** @type {import('./index.js').StudioRuntime} */
   let studio;
 
   try {
-    studio = getStudio(routeDeps);
+    studio = await getStudio(routeDeps);
   } catch (err) {
     console.error('[studio] Failed to initialize StudioOS runtime:', err.message);
     return;

@@ -5,8 +5,7 @@
  * parses their JSON responses into tasks.
  */
 
-import { validateTaskTransition } from '../runtime/state-machine.js';
-import { formatRecentDecisions } from '../identity/history.js';
+import { formatRecentDecisions } from './identity/history.js';
 
 /**
  * Build the prompt for the Global CEO.

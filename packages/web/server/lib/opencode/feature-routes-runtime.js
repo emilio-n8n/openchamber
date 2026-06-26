@@ -289,7 +289,7 @@ export const createFeatureRoutesRuntime = (dependencies) => {
     // StudioOS routes (optional module)
     try {
       const { registerStudioRoutes } = await import('../studio/routes.js');
-      registerStudioRoutes(app, routeDependencies);
+      await registerStudioRoutes(app, routeDependencies);
     } catch {
       // StudioOS module not available — this is optional
     }
