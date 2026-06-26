@@ -1,0 +1,1 @@
+{"nodes": [{"id": "electron_opencode-cwd_resolveManagedOpenCodeCwd", "label": "resolveManagedOpenCodeCwd", "type": "function", "file_type": "code", "confidence_score": 1.0, "source_file": "electron/opencode-cwd.mjs", "summary": "Resolves the OpenCode working directory from env or defaults to homedir"}], "edges": [], "hyperedges": []}

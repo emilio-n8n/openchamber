@@ -1,0 +1,1 @@
+{"nodes": [{"id": "file_types_folder_ansible_icon", "name": "Folder Ansible Icon", "type": "asset", "file_type": "image", "source_file": "ui/src/assets/icons/file-types/folder-ansible.svg", "attributes": {"folder_kind": "ansible", "state": "closed", "color": "#616161", "icon_kind": "folder"}}], "edges": [], "hyperedges": []}

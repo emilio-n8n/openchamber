@@ -1,0 +1,1 @@
+{"nodes": [{"id": "zhcn_quickstart_quickstart", "type": "concept", "file_type": "document", "source_file": "docs/content/docs/zh-cn/quickstart.mdx", "confidence_score": 1.0, "content_summary": "Quickest path: install OpenCode, install OpenChamber CLI, run with --ui-password, open URL; app selection guidance"}], "edges": [], "hyperedges": []}

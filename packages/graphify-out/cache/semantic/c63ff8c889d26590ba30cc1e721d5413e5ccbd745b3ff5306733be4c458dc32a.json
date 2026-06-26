@@ -1,0 +1,1 @@
+{"nodes": [{"id": "es_mcp_servers", "name": "MCP Servers", "type": "feature", "file_type": "concept", "source_file": "docs/content/docs/es/mcp.mdx"}], "edges": [{"source": "es_mcp_servers", "target": "es_projects", "relationship": "scoped_to", "source_file": "docs/content/docs/es/mcp.mdx", "confidence_score": 1.0, "edge_type": "EXTRACTED"}], "hyperedges": []}

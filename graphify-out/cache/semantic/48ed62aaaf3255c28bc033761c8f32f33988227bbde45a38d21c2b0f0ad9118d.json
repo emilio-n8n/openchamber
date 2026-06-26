@@ -1,0 +1,1 @@
+{"nodes": [{"id": "docs_ko_git_git_view", "name": "Git View (KO)", "file_type": "document", "confidence_score": 1.0, "source_file": "docs/content/docs/ko/git.mdx"}], "edges": [{"source": "docs_ko_git_git_view", "target": "docs_ko_github_github_connection", "relationship": "related_to", "confidence_score": 1.0, "source_file": "docs/content/docs/ko/git.mdx"}], "hyperedges": []}

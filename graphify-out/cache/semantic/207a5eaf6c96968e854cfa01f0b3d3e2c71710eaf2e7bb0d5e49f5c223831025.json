@@ -1,0 +1,1 @@
+{"nodes": [{"id": "file_types_folder_api_icon", "name": "Folder API Icon", "type": "asset", "file_type": "image", "source_file": "ui/src/assets/icons/file-types/folder-api.svg", "attributes": {"folder_kind": "api", "state": "closed", "color": "#fbc02d", "icon_kind": "folder"}}], "edges": [], "hyperedges": []}

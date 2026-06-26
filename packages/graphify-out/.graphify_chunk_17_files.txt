@@ -1,0 +1,6 @@
+/teamspace/studios/this_studio/openchamber/packages/web/server/lib/studio/agents/templates/worker.md
+/teamspace/studios/this_studio/openchamber/packages/web/server/lib/terminal/DOCUMENTATION.md
+/teamspace/studios/this_studio/openchamber/packages/web/server/lib/text/DOCUMENTATION.md
+/teamspace/studios/this_studio/openchamber/packages/web/server/lib/tts/DOCUMENTATION.md
+/teamspace/studios/this_studio/openchamber/packages/web/server/lib/tunnels/DOCUMENTATION.md
+/teamspace/studios/this_studio/openchamber/packages/web/server/lib/ui-auth/DOCUMENTATION.md

@@ -1,0 +1,1 @@
+{"nodes": [{"id": "file_types_folder_apollo_icon", "name": "Folder Apollo Icon", "type": "asset", "file_type": "image", "source_file": "ui/src/assets/icons/file-types/folder-apollo.svg", "attributes": {"folder_kind": "apollo", "state": "closed", "color": "#7e57c2", "icon_kind": "folder"}}], "edges": [], "hyperedges": []}

@@ -1,0 +1,1 @@
+{"nodes": [{"id": "issue_config", "name": "Issue Template Configuration", "type": "entity", "subtype": "configuration", "description": "Blank issues disabled; only structured bug reports and feature requests accepted", "file_type": "code", "confidence_score": 1.0, "source_file": ".github/ISSUE_TEMPLATE/config.yml"}], "edges": [], "hyperedges": []}

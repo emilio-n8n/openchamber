@@ -1,0 +1,1 @@
+{"nodes": [{"id": "file_types_firebase_icon", "name": "Firebase Icon", "type": "asset", "file_type": "image", "source_file": "ui/src/assets/icons/file-types/firebase.svg", "attributes": {"brand": "Firebase", "color": "#ff9100", "icon_kind": "brand"}}], "edges": [], "hyperedges": []}

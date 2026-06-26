@@ -1,0 +1,1 @@
+{"nodes": [{"id": "file_types_folder_archive_icon", "name": "Folder Archive Icon", "type": "asset", "file_type": "image", "source_file": "ui/src/assets/icons/file-types/folder-archive.svg", "attributes": {"folder_kind": "archive", "state": "closed", "color": "#ffa726", "icon_kind": "folder"}}], "edges": [], "hyperedges": []}
