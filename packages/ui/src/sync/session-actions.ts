@@ -110,6 +110,10 @@ function sdk() {
   return _sdk
 }
 
+function tryGetSdk() {
+  return _sdk
+}
+
 function dirStore() {
   if (!_childStores) throw new Error("Child stores not initialized")
   const d = _getDirectory()
@@ -1126,7 +1130,8 @@ export async function fetchMessagesForSession(sessionID: string, directory?: str
   const resolvedDir = directory ?? dir()
   if (!resolvedDir) return
 
-  const s = sdk()
+  const s = tryGetSdk()
+  if (!s) return
   const store = directory
     ? dirStoreForDirectory(directory)
     : dirStore()

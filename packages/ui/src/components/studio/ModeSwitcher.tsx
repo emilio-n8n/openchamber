@@ -1,7 +1,7 @@
 // StudioOS — Mode switcher (OpenChamber ↔ StudioOS)
 
-import { useStudioStore } from '../../stores/studio/useStudioStore'
-import { useUIStore } from '../../stores/useUIStore'
+import { useStudioStore } from '@/stores/studio/useStudioStore'
+import { useUIStore } from '@/stores/useUIStore'
 
 export function ModeSwitcher() {
   const mode = useStudioStore((s) => s.mode)

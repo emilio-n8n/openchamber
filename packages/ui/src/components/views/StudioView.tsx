@@ -1,14 +1,14 @@
 // StudioOS — Main view router
 
 import { useState, useEffect } from 'react'
-import { OrganizationView } from './OrganizationView'
-import { StudioTasksView } from './StudioTasksView'
-import { StudioLiveView } from './StudioLiveView'
-import { StudioOnboarding } from '../studio/StudioOnboarding'
-import { useStudioStore } from '../../stores/studio/useStudioStore'
-import { ModeSwitcher } from '../studio/ModeSwitcher'
-import { createLiveStream } from '../../lib/studio/api'
-import { handleStudioEvent } from '../../sync/studio-sync'
+import { OrganizationView } from '@/components/views/OrganizationView'
+import { StudioTasksView } from '@/components/views/StudioTasksView'
+import { StudioLiveView } from '@/components/views/StudioLiveView'
+import { StudioOnboarding } from '@/components/studio/StudioOnboarding'
+import { useStudioStore } from '@/stores/studio/useStudioStore'
+import { ModeSwitcher } from '@/components/studio/ModeSwitcher'
+import { createLiveStream } from '@/lib/studio/api'
+import { handleStudioEvent } from '@/sync/studio-sync'
 
 type StudioTab = 'organization' | 'tasks' | 'live'
 

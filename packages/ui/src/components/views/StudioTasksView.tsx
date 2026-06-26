@@ -1,7 +1,7 @@
 // StudioOS — Task list view (hierarchical)
 
-import { useStudioTaskStore, getTaskTree } from '../../stores/studio/useStudioTaskStore'
-import type { Task } from '../../lib/studio/types'
+import { useStudioTaskStore, getTaskTree } from '@/stores/studio/useStudioTaskStore'
+import type { Task } from '@/lib/studio/types'
 
 export function StudioTasksView() {
   const tasks = useStudioTaskStore((s) => s.tasks)
@@ -40,11 +40,13 @@ export function StudioTasksView() {
   )
 }
 
+type TreeNodeChild = { task: Task; children: TreeNodeChild[] }
+
 function TaskTreeNode({
   node,
   depth,
 }: {
-  node: { task: Task; children: { task: Task; children: unknown[] }[] }
+  node: { task: Task; children: TreeNodeChild[] }
   depth: number
 }) {
   const statusColors: Record<string, string> = {
@@ -95,7 +97,7 @@ function TaskTreeNode({
       </div>
       {node.children.length > 0 && (
         <div className="mt-1 space-y-1">
-          {(node.children as { task: Task; children: unknown[] }[]).map((child) => (
+          {node.children.map((child) => (
             <TaskTreeNode key={child.task.id} node={child} depth={depth + 1} />
           ))}
         </div>

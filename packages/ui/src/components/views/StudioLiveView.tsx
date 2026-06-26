@@ -1,9 +1,9 @@
 // StudioOS — Live activity dashboard (real-time)
 
-import { useRef } from 'react'
-import { useStudioTaskStore } from '../../stores/studio/useStudioTaskStore'
-import { useOrganizationStore } from '../../stores/studio/useOrganizationStore'
-import type { LiveActivity } from '../../lib/studio/types'
+import { useRef, useEffect } from 'react'
+import { useStudioTaskStore } from '@/stores/studio/useStudioTaskStore'
+import { useOrganizationStore } from '@/stores/studio/useOrganizationStore'
+import type { LiveActivity } from '@/lib/studio/types'
 
 export function StudioLiveView() {
   const activities = useStudioTaskStore((s) => s.activities)

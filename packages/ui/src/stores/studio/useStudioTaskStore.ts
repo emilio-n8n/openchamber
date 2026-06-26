@@ -1,7 +1,7 @@
 // StudioOS — Zustand store for tasks
 
 import { create } from 'zustand'
-import type { Task, LiveActivity } from '../../lib/studio/types'
+import type { Task, LiveActivity } from '@/lib/studio/types'
 
 interface TaskState {
   tasks: Task[]

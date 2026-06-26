@@ -2,7 +2,7 @@
 
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { StudioMode, StudioProjectSummary, OrganizationStatus } from '../../lib/studio/types'
+import type { StudioMode, StudioProjectSummary, OrganizationStatus } from '@/lib/studio/types'
 
 interface StudioState {
   mode: StudioMode

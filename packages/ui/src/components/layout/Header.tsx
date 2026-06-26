@@ -17,6 +17,8 @@ import { SortableTabsStrip, type SortableTabsStripItem } from '@/components/ui/s
 
 import { DiffIcon } from '@/components/icons/DiffIcon';
 import { useUIStore, type ContextPanelMode, type MainTab } from '@/stores/useUIStore';
+import { useStudioStore } from '@/stores/studio/useStudioStore';
+import { ModeSwitcher } from '@/components/studio/ModeSwitcher';
 import { useConfigStore } from '@/stores/useConfigStore';
 import { useSessionUIStore } from '@/sync/session-ui-store';
 import { useSessionWorktreeStore } from '@/sync/session-worktree-store';
@@ -2215,6 +2217,7 @@ export const Header: React.FC<HeaderProps> = ({
             className={cn(desktopHeaderIconButtonClass, 'mr-1')}
             Icon={'picture-in-picture-2'}
           />
+          <ModeSwitcher />
           {desktopSidebarActions}
           <WindowsWindowControls visible={isWindowsElectronDesktop} />
         </div>

@@ -1,7 +1,7 @@
 // StudioOS — Settings page
 
-import { useStudioStore } from '../../stores/studio/useStudioStore'
-import { ModeSwitcher } from '../studio/ModeSwitcher'
+import { useStudioStore } from '@/stores/studio/useStudioStore'
+import { ModeSwitcher } from '@/components/studio/ModeSwitcher'
 
 export function StudioSettingsPage() {
   const mode = useStudioStore((s) => s.mode)

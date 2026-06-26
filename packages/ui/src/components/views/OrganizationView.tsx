@@ -1,11 +1,11 @@
 // StudioOS — Organization tree view
 
 import { useState } from 'react'
-import { useOrganizationStore } from '../../stores/studio/useOrganizationStore'
-import { useStudioStore } from '../../stores/studio/useStudioStore'
-import { useStudioTaskStore } from '../../stores/studio/useStudioTaskStore'
-import { submitTask } from '../../lib/studio/api'
-import type { Department, GovernanceAgentRef } from '../../lib/studio/types'
+import { useOrganizationStore } from '@/stores/studio/useOrganizationStore'
+import { useStudioStore } from '@/stores/studio/useStudioStore'
+import { useStudioTaskStore } from '@/stores/studio/useStudioTaskStore'
+import { submitTask } from '@/lib/studio/api'
+import type { Department, GovernanceAgentRef } from '@/lib/studio/types'
 
 export function OrganizationView() {
   const [prompt, setPrompt] = useState('')
@@ -171,11 +171,11 @@ function OrgNode({
           <div className="font-medium text-[--text-primary]">{identity?.name || name}</div>
           {identity && !isWorker && (
             <div className="text-xs text-[--text-secondary] space-x-3">
-              <span>{identity.performance.tasksCompleted} decisions</span>
+              <span>{identity.performance?.tasksCompleted ?? 0} decisions</span>
               <span>
-                {((identity.performance.successRate || 0) * 100).toFixed(0)}% success
+                {((identity.performance?.successRate ?? 0) * 100).toFixed(0)}% success
               </span>
-              <span>Score: {identity.performance.promotionScore}</span>
+              <span>Score: {identity.performance?.promotionScore ?? 0}</span>
             </div>
           )}
           {identity?.skills && identity.skills.length > 0 && (

@@ -1,9 +1,10 @@
 // StudioOS — Onboarding flow (create project + generate organization)
 
 import { useState } from 'react'
-import { useStudioStore } from '../../stores/studio/useStudioStore'
-import { createProject, getOrganization } from '../../lib/studio/api'
-import { useOrganizationStore } from '../../stores/studio/useOrganizationStore'
+import { useStudioStore } from '@/stores/studio/useStudioStore'
+import { createProject, getOrganization } from '@/lib/studio/api'
+import { useOrganizationStore } from '@/stores/studio/useOrganizationStore'
+import type { Organization } from '@/lib/studio/types'
 
 type Step = 'welcome' | 'select-directory' | 'generating' | 'ready'
 
@@ -41,7 +42,7 @@ export function StudioOnboarding() {
     // Fetch the organization
     const orgResult = await getOrganization(projectId)
     if (orgResult.data) {
-      setOrganization(orgResult.data)
+      setOrganization(orgResult.data as Organization)
     }
 
     addProject({

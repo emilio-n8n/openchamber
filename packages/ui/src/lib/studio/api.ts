@@ -1,6 +1,6 @@
 // StudioOS — API client for /api/studio/* endpoints
 
-import { runtimeFetch } from '../../lib/runtime-fetch'
+import { runtimeFetch } from '@/lib/runtime-fetch'
 
 const BASE = '/api/studio/projects'
 

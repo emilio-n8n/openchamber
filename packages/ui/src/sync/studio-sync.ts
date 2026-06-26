@@ -3,8 +3,8 @@
 // Maps studio.* SSE events to Zustand store updates
 // Registered conditionally only when Studio mode is active
 
-import { useOrganizationStore } from '../stores/studio/useOrganizationStore'
-import { useStudioTaskStore } from '../stores/studio/useStudioTaskStore'
+import { useOrganizationStore } from '@/stores/studio/useOrganizationStore'
+import { useStudioTaskStore } from '@/stores/studio/useStudioTaskStore'
 
 interface StudioEvent {
   type: string

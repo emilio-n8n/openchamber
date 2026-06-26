@@ -1,7 +1,7 @@
 // StudioOS — Zustand store for organization state
 
 import { create } from 'zustand'
-import type { Organization, Department, GovernanceAgentRef, AgentIdentity } from '../../lib/studio/types'
+import type { Organization, Department, GovernanceAgentRef, AgentIdentity } from '@/lib/studio/types'
 
 interface OrganizationState {
   organization: Organization | null

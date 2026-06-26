@@ -216,7 +216,7 @@ export function getSettingsNavIcon(slug: SettingsPageSlug): IconName | null {
     case 'tunnel':
       return 'global';
     case 'studio':
-      return 'community';
+      return 'node-tree';
     case 'about':
       return 'information';
     case 'home':
