@@ -7,6 +7,7 @@ export function ModeSwitcher() {
   const mode = useStudioStore((s) => s.mode)
   const switchMode = useStudioStore((s) => s.switchMode)
   const setActiveMainTab = useUIStore((s) => s.setActiveMainTab)
+  const setSettingsDialogOpen = useUIStore((s) => s.setSettingsDialogOpen)
   const activeMainTab = useUIStore((s) => s.activeMainTab)
 
   const isStudio = mode === 'studio'
@@ -14,6 +15,7 @@ export function ModeSwitcher() {
 
   function handleSwitch(target: 'openchamber' | 'studio') {
     switchMode(target)
+    setSettingsDialogOpen(false)
     if (target === 'studio') {
       setActiveMainTab('studio')
     } else if (isStudioTabActive) {
