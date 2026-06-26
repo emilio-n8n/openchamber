@@ -1,12 +1,30 @@
 // StudioOS — Organization tree view
 
+import { useState } from 'react'
 import { useOrganizationStore } from '../../stores/studio/useOrganizationStore'
+import { useStudioStore } from '../../stores/studio/useStudioStore'
+import { useStudioTaskStore } from '../../stores/studio/useStudioTaskStore'
+import { submitTask } from '../../lib/studio/api'
 import type { Department, GovernanceAgentRef } from '../../lib/studio/types'
 
 export function OrganizationView() {
+  const [prompt, setPrompt] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const organization = useOrganizationStore((s) => s.organization)
   const identities = useOrganizationStore((s) => s.identities)
   const isLoading = useOrganizationStore((s) => s.isLoading)
+  const activeProjectId = useStudioStore((s) => s.activeProjectId)
+
+  async function handleSubmit() {
+    if (!prompt.trim() || !activeProjectId) return
+    setIsSubmitting(true)
+    const result = await submitTask(activeProjectId, prompt.trim())
+    if (result.error) {
+      console.error('[studio] Failed to submit task:', result.error)
+    }
+    setPrompt('')
+    setIsSubmitting(false)
+  }
 
   if (isLoading) {
     return (
@@ -46,6 +64,26 @@ export function OrganizationView() {
   return (
     <div className="h-full overflow-auto p-6">
       <div className="max-w-2xl mx-auto space-y-4">
+        {/* Task Input */}
+        <div className="flex gap-2 p-3 rounded-lg border border-[--border] bg-[--surface]">
+          <input
+            type="text"
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSubmit() } }}
+            placeholder="Ask the organization to do something..."
+            className="flex-1 bg-transparent text-sm text-[--text-primary] outline-none placeholder:text-[--text-tertiary]"
+            disabled={isSubmitting}
+          />
+          <button
+            onClick={handleSubmit}
+            disabled={isSubmitting || !prompt.trim()}
+            className="px-3 py-1 text-sm bg-[--accent] text-white rounded-md hover:opacity-90 disabled:opacity-40"
+          >
+            {isSubmitting ? 'Sending...' : 'Send'}
+          </button>
+        </div>
+
         {/* Global CEO */}
         <OrgNode
           name="Global CEO"

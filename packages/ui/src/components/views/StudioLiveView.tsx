@@ -1,30 +1,15 @@
 // StudioOS — Live activity dashboard (real-time)
 
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { useStudioTaskStore } from '../../stores/studio/useStudioTaskStore'
 import { useOrganizationStore } from '../../stores/studio/useOrganizationStore'
-import { useStudioStore } from '../../stores/studio/useStudioStore'
-import { createLiveStream } from '../../lib/studio/api'
-import { handleStudioEvent } from '../../sync/studio-sync'
 import type { LiveActivity } from '../../lib/studio/types'
 
 export function StudioLiveView() {
   const activities = useStudioTaskStore((s) => s.activities)
   const tasks = useStudioTaskStore((s) => s.tasks)
   const organization = useOrganizationStore((s) => s.organization)
-  const activeProjectId = useStudioStore((s) => s.activeProjectId)
   const scrollRef = useRef<HTMLDivElement>(null)
-
-  // Connect to SSE stream
-  useEffect(() => {
-    if (!activeProjectId) return
-
-    const cleanup = createLiveStream(activeProjectId, (event) => {
-      handleStudioEvent(event as never)
-    })
-
-    return cleanup
-  }, [activeProjectId])
 
   // Auto-scroll to top for new activities
   useEffect(() => {

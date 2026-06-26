@@ -7,6 +7,7 @@
 
 import { createOpencodeClient } from '@opencode-ai/sdk/v2';
 import { createStudioRuntime } from './index.js';
+import { createProjectSSEStream } from './events.js';
 
 /** @type {import('./index.js').StudioRuntime | null} */
 let _studioRuntime = null;
@@ -228,7 +229,6 @@ export function registerStudioRoutes(app, routeDeps) {
    * SSE stream of real-time organization activity.
    */
   app.get('/api/studio/projects/:id/live', (req, res) => {
-    const { createProjectSSEStream } = require('./events.js');
     createProjectSSEStream(studio.eventBus, res, req.params.id);
   });
 

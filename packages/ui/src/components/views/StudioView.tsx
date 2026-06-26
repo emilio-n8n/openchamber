@@ -1,12 +1,14 @@
 // StudioOS — Main view router
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { OrganizationView } from './OrganizationView'
 import { StudioTasksView } from './StudioTasksView'
 import { StudioLiveView } from './StudioLiveView'
 import { StudioOnboarding } from '../studio/StudioOnboarding'
 import { useStudioStore } from '../../stores/studio/useStudioStore'
 import { ModeSwitcher } from '../studio/ModeSwitcher'
+import { createLiveStream } from '../../lib/studio/api'
+import { handleStudioEvent } from '../../sync/studio-sync'
 
 type StudioTab = 'organization' | 'tasks' | 'live'
 
@@ -14,6 +16,15 @@ export function StudioView() {
   const [activeTab, setActiveTab] = useState<StudioTab>('organization')
   const isOnboarding = useStudioStore((s) => s.isOnboarding)
   const activeProjectId = useStudioStore((s) => s.activeProjectId)
+
+  // Connect SSE stream globally when Studio mode is active
+  useEffect(() => {
+    if (!activeProjectId) return
+    const cleanup = createLiveStream(activeProjectId, (event) => {
+      handleStudioEvent(event as never)
+    })
+    return cleanup
+  }, [activeProjectId])
 
   if (isOnboarding) {
     return <StudioOnboarding />

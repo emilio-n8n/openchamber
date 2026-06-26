@@ -37,6 +37,7 @@ import { GitPage } from '@/components/sections/git-identities/GitPage';
 import type { OpenChamberSection } from '@/components/sections/openchamber/types';
 import { OpenChamberPage } from '@/components/sections/openchamber/OpenChamberPage';
 import { AboutSettings } from '@/components/sections/openchamber/AboutSettings';
+import { StudioSettingsPage } from '@/components/sections/studio/StudioSettingsPage';
 import { useDeviceInfo } from '@/lib/device';
 import { isDesktopLocalOriginActive, isDesktopShell, isVSCodeRuntime, isWebRuntime } from '@/lib/desktop';
 import { useI18n } from '@/lib/i18n';
@@ -103,6 +104,7 @@ const pageOrder: SettingsPageSlug[] = [
   'skills.catalog',
   'voice',
   'tunnel',
+  'studio',
   'about',
 ];
 
@@ -213,6 +215,8 @@ export function getSettingsNavIcon(slug: SettingsPageSlug): IconName | null {
       return 'mic';
     case 'tunnel':
       return 'global';
+    case 'studio':
+      return 'community';
     case 'about':
       return 'information';
     case 'home':
@@ -521,6 +525,8 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ onClose, forceMobile
         return t('settings.page.voice.title');
       case 'tunnel':
         return t('settings.page.tunnel.title');
+      case 'studio':
+        return 'StudioOS';
       case 'about':
         return t('settings.page.about.title');
       case 'home':
@@ -814,6 +820,8 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ onClose, forceMobile
         const section = openChamberSectionBySlug[slug] ?? 'visual';
         return <OpenChamberPage section={section} />;
       }
+      case 'studio':
+        return <StudioSettingsPage />;
       default:
         return <SettingsHome onOpen={openPage} />;
     }
